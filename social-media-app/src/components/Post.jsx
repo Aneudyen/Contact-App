@@ -9,10 +9,10 @@ function Post(props){
     }
     return(
         <div>
-        <h3>Test Post</h3>
-        <p>This is a test post we'll edit later!</p>
-        <p>Likes: 30</p>
-        <button>Like</button>
+        <h3>{props.content}</h3>
+        
+        <p>Likes: {likes}</p>
+        <button onClick={handleLike}>Like</button>
         <p>Comments:</p>
         <Comment />
         <Comment content="This is a test comment!" />

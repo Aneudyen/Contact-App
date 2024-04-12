@@ -8,18 +8,16 @@ function Post(props){
         setLikes(likes + 1);
     }
     return(
-        <div>
-        <h3>{props.content}</h3>
-        
-        <p>Likes: {likes}</p>
-        <button onClick={handleLike}>Like</button>
-        <p>Comments:</p>
-        <Comment />
-        <Comment content="This is a test comment!" />
-        <Comment content="This is another test comment!" />
-        <Comment content="This is yet another test comment!" />
-        </div>
-    )
+        <div className="post-card">
+      <h2 className="post-title">{props.title}</h2>{/* Display the title */}
+      <h4>{props.content}</h4> {/* Display the content */}
+      <p>Likes: {likes}</p>
+      <button onClick={handleLike}>Like</button>
+      <p>Comments:</p>
+      <Comment content="This is a test comment!" />
+    </div>
+  );
+       
 }
 
 export default Post

@@ -2,6 +2,8 @@ import React from 'react';
 import {useState} from 'react'
 import Post from './components/Post';
 import './App.css'
+import PostForm from './components/PostForm';
+import Feed from './components/Feed';
 
 
 function App() { const [posts, setPosts] = useState([]); //state to store posts

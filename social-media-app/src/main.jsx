@@ -2,9 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import Root from "./routes/root";
-import Contact,{loader as contactLoader,} from "./routes/contact";
+import Index from "./routes/index";
+import Contact,{loader as contactLoader,action as contactAction,} from "./routes/contact";
 import Root, { loader as rootLoader, action as rootAction, } from "./routes/root";
-import EditContact from "./routes/edit";
+import EditContact,{action as editAction,} from "./routes/edit";
+import { action as destroyAction } from "./routes/destroy";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -22,10 +24,29 @@ const router = createBrowserRouter([
     action: rootAction,
   children: [
 
+    { index: true, element: <Index /> },
+    {
+      path: "contacts/:contactId",
+      element: <Contact />,
+      loader: contactLoader,
+      action: contactAction,
+    },
   {
     path: "contacts/:contactId",
     element: <Contact />,
     loader: contactLoader,
+    action: contactAction,
+  },
+  {
+    path: "contacts/:contactId/edit",
+    element: <EditContact />,
+    loader: contactLoader,
+    action: editAction,
+  },
+  {
+    path: "contacts/:contactId/destroy",
+    action: destroyAction,
+    errorElement: <div>Oops! There was an error.</div>,
   },
 ],
   },
